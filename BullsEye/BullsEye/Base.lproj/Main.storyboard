@@ -95,6 +95,8 @@
                     <connections>
                         <outlet property="slider" destination="YcX-mN-6Nd" id="0n4-0m-lvo"/>
                         <outlet property="targetLabel" destination="EaN-8N-BsM" id="fFm-3M-Qun"/>
+                        <outlet property="totalRoundsLabel" destination="m2u-Id-yGh" id="Q8a-NZ-sEg"/>
+                        <outlet property="totalScoresLabel" destination="HRI-9T-ood" id="yDk-lb-vkp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

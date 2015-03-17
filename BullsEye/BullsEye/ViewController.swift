@@ -13,8 +13,14 @@ class ViewController: UIViewController {
     var currentValue:Int = 0
     var targetValue:Int = 0
     
+    var totalScores = 0
+    var totalRounds = 0
+    
     @IBOutlet weak var slider:UISlider!
     @IBOutlet weak var targetLabel:UILabel!
+    @IBOutlet weak var totalScoresLabel:UILabel!
+    @IBOutlet weak var totalRoundsLabel:UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         startNewRound()
@@ -25,10 +31,13 @@ class ViewController: UIViewController {
         targetValue = 1 + Int(arc4random_uniform(100))
         currentValue = lroundf(slider.value)
         slider.value = Float(currentValue)
+        totalRounds += 1
     }
     
     func updateLabels(){
         targetLabel.text = String(targetValue)
+        totalScoresLabel.text = String(totalScores)
+        totalRoundsLabel.text = String(totalRounds)
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,8 +46,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showAlertMessage(){
-        let message = "The current value is: \(currentValue)"
-                    + "\nThe target value is: \(targetValue)";
+        let difference = abs(targetValue - currentValue)
+        let point = 100 - difference
+        totalScores += point
+        let message = "You get \(point) points."
         
         let alert = UIAlertController(title: "You Guess!", message: message, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
