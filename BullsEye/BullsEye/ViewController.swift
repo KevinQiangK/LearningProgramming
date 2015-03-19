@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     var currentValue:Int = 0
     var targetValue:Int = 0
     
-    var totalScores = 0
-    var totalRounds = 0
+    var _totalScores = 0
+    var _totalRounds = 0
     
     @IBOutlet weak var slider:UISlider!
     @IBOutlet weak var targetLabel:UILabel!
@@ -23,21 +23,27 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound()
+        startNewGame()
         updateLabels()
     }
 
+    func startNewGame(){
+        _totalScores = 0
+        _totalRounds = 0
+        startNewRound()
+    }
+    
     func startNewRound(){
         targetValue = 1 + Int(arc4random_uniform(100))
         currentValue = lroundf(slider.value)
         slider.value = Float(currentValue)
-        totalRounds += 1
+        _totalRounds += 1
     }
     
     func updateLabels(){
         targetLabel.text = String(targetValue)
-        totalScoresLabel.text = String(totalScores)
-        totalRoundsLabel.text = String(totalRounds)
+        totalScoresLabel.text = String(_totalScores)
+        totalRoundsLabel.text = String(_totalRounds)
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,20 +53,37 @@ class ViewController: UIViewController {
 
     @IBAction func showAlertMessage(){
         let difference = abs(targetValue - currentValue)
-        let point = 100 - difference
-        totalScores += point
-        let message = "You get \(point) points."
+        var point = 100 - difference
         
+        var title:String
+        if(difference == 0){
+            title = "Pefect"
+            point += 100
+        }else if(difference < 5){
+            title = "Great"
+            point += 50
+        }else{
+            title = "Not very closed to."
+        }
+        
+        _totalScores += point
+        let message = "You get \(point) points."
         let alert = UIAlertController(title: "You Guess!", message: message, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let action = UIAlertAction(title: title, style: .Default,
+            handler: { action in self.startNewRound()
+        self.updateLabels()})
+        
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
-        startNewRound()
-        updateLabels()
     }
 
     @IBAction func slideMove(slider:UISlider){
         currentValue = lroundf(slider.value)
+    }
+    
+    @IBAction func startOverGame(){
+        startNewGame()
+        updateLabels()
     }
 }
 
