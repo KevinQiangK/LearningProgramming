@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD9274271ABB05A70096A354 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9274261ABB05A70096A354 /* AboutViewController.swift */; };
 		CDA5712F1AB3272400B6F3C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA5712E1AB3272400B6F3C3 /* AppDelegate.swift */; };
 		CDA571311AB3272400B6F3C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA571301AB3272400B6F3C3 /* ViewController.swift */; };
 		CDA571341AB3272400B6F3C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDA571321AB3272400B6F3C3 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD9274261ABB05A70096A354 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		CDA571291AB3272400B6F3C3 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA5712D1AB3272400B6F3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA5712E1AB3272400B6F3C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		CDA5712B1AB3272400B6F3C3 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				CD9274261ABB05A70096A354 /* AboutViewController.swift */,
 				CDA5712E1AB3272400B6F3C3 /* AppDelegate.swift */,
 				CDA571301AB3272400B6F3C3 /* ViewController.swift */,
 				CDA571321AB3272400B6F3C3 /* Main.storyboard */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD9274271ABB05A70096A354 /* AboutViewController.swift in Sources */,
 				CDA571311AB3272400B6F3C3 /* ViewController.swift in Sources */,
 				CDA5712F1AB3272400B6F3C3 /* AppDelegate.swift in Sources */,
 			);
@@ -405,6 +409,7 @@
 				CDA5714A1AB3272400B6F3C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDA5714B1AB3272400B6F3C3 /* Build configuration list for PBXNativeTarget "BullsEyeTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				CDA5714D1AB3272400B6F3C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
