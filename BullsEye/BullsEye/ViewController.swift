@@ -23,9 +23,31 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customSlideUi()
         startNewGame()
         updateLabels()
     }
+    
+    func customSlideUi(){
+        let thumbImageNormal = UIImage(named: "SliderThumb-Normal")
+        slider.setThumbImage(thumbImageNormal, forState: .Normal)
+        
+        let thumbImageHighliged = UIImage(named: "SliderThumb-Highlighted")
+        slider.setThumbImage(thumbImageHighliged, forState: .Highlighted)
+        
+        let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        
+        if let trackLeftImage = UIImage(named: "SliderTrackLeft"){
+            let trackLeftResizeable = trackLeftImage.resizableImageWithCapInsets(insets)
+            slider.setMinimumTrackImage(trackLeftImage, forState: .Normal)
+        }
+        
+        if let trackRightImage = UIImage(named: "SlideTrackRight"){
+            let trackRightResizable = trackRightImage.resizableImageWithCapInsets(insets)
+            slider.setMaximumTrackImage(trackRightImage, forState: .Normal)
+        }
+    }
+    
 
     func startNewGame(){
         _totalScores = 0

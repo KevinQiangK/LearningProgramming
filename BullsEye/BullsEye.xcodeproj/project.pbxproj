@@ -14,6 +14,7 @@
 		CDA571361AB3272400B6F3C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDA571351AB3272400B6F3C3 /* Images.xcassets */; };
 		CDA571391AB3272400B6F3C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA571371AB3272400B6F3C3 /* LaunchScreen.xib */; };
 		CDA571451AB3272400B6F3C3 /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA571441AB3272400B6F3C3 /* BullsEyeTests.swift */; };
+		CDB5469B1ABDACD300BFDDF6 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = CDB5469A1ABDACD300BFDDF6 /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		CDA5713E1AB3272400B6F3C3 /* BullsEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullsEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDA571431AB3272400B6F3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDA571441AB3272400B6F3C3 /* BullsEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeTests.swift; sourceTree = "<group>"; };
+		CDB5469A1ABDACD300BFDDF6 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = BullsEye.html; path = "../../../../../Study/ios/The.iOS.Apprentice.3rd.Edition.2014.12/The_iOS_Apprentice_Source_Code_v_3_1/The iOS Apprentice 1 - Getting Started/Resources/BullsEye.html"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		CDA5712B1AB3272400B6F3C3 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				CDB5469A1ABDACD300BFDDF6 /* BullsEye.html */,
 				CD9274261ABB05A70096A354 /* AboutViewController.swift */,
 				CDA5712E1AB3272400B6F3C3 /* AppDelegate.swift */,
 				CDA571301AB3272400B6F3C3 /* ViewController.swift */,
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDA571341AB3272400B6F3C3 /* Main.storyboard in Resources */,
+				CDB5469B1ABDACD300BFDDF6 /* BullsEye.html in Resources */,
 				CDA571391AB3272400B6F3C3 /* LaunchScreen.xib in Resources */,
 				CDA571361AB3272400B6F3C3 /* Images.xcassets in Resources */,
 			);
