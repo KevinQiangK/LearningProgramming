@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD4F34091AD5629C0005893B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4F34081AD5629C0005893B /* AppDelegate.swift */; };
-		CD4F340B1AD5629C0005893B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4F340A1AD5629C0005893B /* ViewController.swift */; };
+		CD4F340B1AD5629C0005893B /* ChecklistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4F340A1AD5629C0005893B /* ChecklistsViewController.swift */; };
 		CD4F340E1AD5629C0005893B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4F340C1AD5629C0005893B /* Main.storyboard */; };
 		CD4F34101AD5629C0005893B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD4F340F1AD5629C0005893B /* Images.xcassets */; };
 		CD4F34131AD5629C0005893B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4F34111AD5629C0005893B /* LaunchScreen.xib */; };
@@ -29,7 +29,7 @@
 		CD4F34031AD5629C0005893B /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4F34071AD5629C0005893B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD4F34081AD5629C0005893B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD4F340A1AD5629C0005893B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD4F340A1AD5629C0005893B /* ChecklistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsViewController.swift; sourceTree = "<group>"; };
 		CD4F340D1AD5629C0005893B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD4F340F1AD5629C0005893B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD4F34121AD5629C0005893B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CD4F34081AD5629C0005893B /* AppDelegate.swift */,
-				CD4F340A1AD5629C0005893B /* ViewController.swift */,
+				CD4F340A1AD5629C0005893B /* ChecklistsViewController.swift */,
 				CD4F340C1AD5629C0005893B /* Main.storyboard */,
 				CD4F340F1AD5629C0005893B /* Images.xcassets */,
 				CD4F34111AD5629C0005893B /* LaunchScreen.xib */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD4F340B1AD5629C0005893B /* ViewController.swift in Sources */,
+				CD4F340B1AD5629C0005893B /* ChecklistsViewController.swift in Sources */,
 				CD4F34091AD5629C0005893B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
