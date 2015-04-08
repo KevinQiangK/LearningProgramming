@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>78E7EA2F-4FA1-49EB-8488-F53E0E29DDCB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Checklists</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>26FA88740A8B6FC4FD4A698AAC02D48B6AFDC678</key>
+		<string>github.com:KevinQiangK/LearningIOSProgramming.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Checklists/Checklists/Checklists.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>26FA88740A8B6FC4FD4A698AAC02D48B6AFDC678</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:KevinQiangK/LearningIOSProgramming.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>26FA88740A8B6FC4FD4A698AAC02D48B6AFDC678</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>26FA88740A8B6FC4FD4A698AAC02D48B6AFDC678</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LearningIOSProgramming</string>
+		</dict>
+	</array>
+</dict>
+</plist>
