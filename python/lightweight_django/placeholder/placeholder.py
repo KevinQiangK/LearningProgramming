@@ -32,17 +32,28 @@ from django.core.wsgi import get_wsgi_application
 from django.http import HttpResponse, HttpResponseBadRequest
 from django import forms
 
+from io import BytesIO
+from PIL import Image
 
 class ImageForm(forms.Form):
     width = forms.IntegerField(min_value=1, max_value=2000)
     height = forms.IntegerField(min_value=1, max_value=2000)
 
+    def generate(self, image_format='PNG'):
+        width = self.cleaned_data['width']
+        height = self.cleaned_data['height']
+        image = Image.new('RGB', (width, height))
+        content = BytesIO()
+        image.save(content, image_format)
+        content.seek(0)
+        return content
 
 def placeholder(request, width, height):
     # TODO: Rest of the view will go here
     form = ImageForm({'width': width, 'height': height})
     if form.is_valid():
-        return HttpResponse("OK")
+        image = form.generate()
+        return HttpResponse(image, content_type='image/png')
     else:
         return HttpResponseBadRequest('Invalid Image Request.')
 
