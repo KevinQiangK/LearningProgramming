@@ -33,7 +33,7 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django import forms
 
 from io import BytesIO
-from PIL import Image
+from PIL import Image, ImageDraw
 
 class ImageForm(forms.Form):
     width = forms.IntegerField(min_value=1, max_value=2000)
@@ -43,6 +43,15 @@ class ImageForm(forms.Form):
         width = self.cleaned_data['width']
         height = self.cleaned_data['height']
         image = Image.new('RGB', (width, height))
+
+        draw = ImageDraw.Draw(image)
+        text = "{0}x{1}".format(width, height)
+        textwidth, textheight = draw.textsize(text)
+        if textwidth < width and textheight < height:
+            texttop = (height - textheight) // 2
+            textleft = (width - textwidth) // 2
+            draw.text((texttop, textleft), text, fill=(255, 255, 255))
+
         content = BytesIO()
         image.save(content, image_format)
         content.seek(0)
