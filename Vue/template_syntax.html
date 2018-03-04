@@ -18,6 +18,11 @@
 			<p>v-bind can be used inside HTML attribute.</p>
 			<div v-bind:id="dynamicId"></div>
 			<button v-bind:disabled='isButtonDisabled'>v-bind Button Test</button>
+
+			<h2>Using Javascript Expressions</h2>
+			<p>Number:{{ number + 1 }}</p>
+			<p>Boolean: {{ ok ? 'YES': 'NO' }}</p>
+			<p>String: {{ message.split('').reverse().join('') }}</p>
 		</div>
 	</body>
 	<script>
@@ -28,10 +33,13 @@
 				msg:"Welcome to Vue.js template syntax.",
 				rawHtml:'<span style="color:red">this should be red.</span>',
 				isButtonDisabled:true,
-				dynamicId:'dynamicId'
+				dynamicId:'dynamicId',
+				number:100,
+				ok:true,
+				message:"123456789",
 			}
 		});
 
-		document.getElementById('dynamicId').innerHTML = "hello,v-bind dynmic id!";
+		document.getElementById('dynamicId').innerText = "hello,v-bind dynamic id!";
 	</script>
 </html>
