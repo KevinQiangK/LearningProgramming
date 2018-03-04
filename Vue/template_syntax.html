@@ -35,6 +35,15 @@
 			<h2>Modifiers</h2>
 			<p>Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way</p>
 		</div>
+
+		<div id="app_shorthands">
+			full syntax[v-bind:] <a v-bind:href='url'>{{ url }}</a><br>
+			shorthand[:]<a :href='url'>{{ url }}</a><br>
+
+			full syntax[v-on:]<button v-on:click='doSomething'>v-on:click button</button><br>
+			shorthand[@:]<button @click='doSomething'>@click button</button><br>
+		</div>
+
 	</body>
 	<script>
 
@@ -58,6 +67,16 @@
 			},
 			methods:{
 				doSomething:function(){alert('hello.')}
+			}
+		});
+		
+		var app_shorthands = new Vue({
+			el:'#app_shorthands',
+			data:{
+				url:'https://www.baidu.com'
+			},
+			methods:{
+				doSomething:function(){alert('doSomething.')}
 			}
 		});
 
