@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<title>Template Syntax</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app_text">
+			<h1>Interploations</h1>
+			<h2>Text</h2>
+			<p>Mustaches interprets the data as plain txt,v-once directive only one-time interpolations.</p>
+			<span v-once>Message：{{ msg }}</span>
+
+			<h2>Raw HTML</h2>
+			<p>Using mustaches:{{ rawHtml }}</p>
+			<p>Using v-html directive:<span v-html="rawHtml"></span></p>
+
+			<h2>Attributes</h2>
+			<p>v-bind can be used inside HTML attribute.</p>
+			<div v-bind:id="dynamicId"></div>
+			<button v-bind:disabled='isButtonDisabled'>v-bind Button Test</button>
+
+			<h2>Using Javascript Expressions</h2>
+			<p>Number:{{ number + 1 }}</p>
+			<p>Boolean: {{ ok ? 'YES': 'NO' }}</p>
+			<p>String: {{ message.split('').reverse().join('') }}</p>
+		</div>
+
+		<div id="app_directive">
+			<h1>Directive</h1>
+			<p>with the `v-` prefix, expected ato be a single JavaScript Expressions， A directive’s job is to reactively apply side effects to the DOM when the value of its expression changes</p>
+			<h2>Arguments</h2>
+			<a v-bind:href='url'>v-bind:href='url'</a>
+			<br>
+			<button v-on:click='doSomething'>v-on:click</button>
+			<h2>Modifiers</h2>
+			<p>Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way</p>
+		</div>
+
+		<div id="app_shorthands">
+			full syntax[v-bind:] <a v-bind:href='url'>{{ url }}</a><br>
+			shorthand[:]<a :href='url'>{{ url }}</a><br>
+
+			full syntax[v-on:]<button v-on:click='doSomething'>v-on:click button</button><br>
+			shorthand[@:]<button @click='doSomething'>@click button</button><br>
+		</div>
+
+	</body>
+	<script>
+
+		var app_text = new Vue({
+			el:'#app_text',
+			data:{
+				msg:"Welcome to Vue.js template syntax.",
+				rawHtml:'<span style="color:red">this should be red.</span>',
+				isButtonDisabled:true,
+				dynamicId:'dynamicId',
+				number:100,
+				ok:true,
+				message:"123456789",
+			}
+		});
+
+		var app_directive = new Vue({
+			el:"#app_directive",
+			data:{
+				url:'https://www.baidu.com'
+			},
+			methods:{
+				doSomething:function(){alert('hello.')}
+			}
+		});
+		
+		var app_shorthands = new Vue({
+			el:'#app_shorthands',
+			data:{
+				url:'https://www.baidu.com'
+			},
+			methods:{
+				doSomething:function(){alert('doSomething.')}
+			}
+		});
+
+		document.getElementById('dynamicId').innerText = "hello,v-bind dynamic id!";
+	</script>
+</html>
