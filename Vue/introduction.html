@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Introduction Vue.js</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app-4">
+			<ol>
+				<li v-for="todo in todos">
+					{{ todo.text }}
+				</li>
+			</ol>
+		</div>
+	</body>
+	<script>
+		var app4 = new Vue({
+			el:"#app-4",
+			data:{
+				todos:[
+					{text:'Learning Javascript'},
+					{text:'Learning Vue.js'},
+					{text:'Building something awesome'}
+				]
+			}
+		});
+		
+		setInterval(() => {
+			var count = app4.todos.length;
+			if(count >10) return;
+			app4.todos.push({text: "No "+  count + " by setInterval appended."});
+		}, 1000);
+	</script>
+</html>
