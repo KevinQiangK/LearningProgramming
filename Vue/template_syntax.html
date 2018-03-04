@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Template Syntax</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<h1>Interploations</h1>
+		<div id="app_text">
+			<h2>Text</h2>
+			<p>Mustaches interprets the data as plain txt,v-once directive only one-time interpolations.</p>
+			<span v-once>Message：{{ msg }}</span>
+
+			<h2>Raw HTML</h2>
+			<p>Using mustaches:{{ rawHtml }}</p>
+			<p>Using v-html directive:<span v-html="rawHtml"></span></p>
+
+			<h2>Attributes</h2>
+			<p>v-bind can be used inside HTML attribute.</p>
+			<div v-bind:id="dynamicId"></div>
+			<button v-bind:disabled='isButtonDisabled'>v-bind Button Test</button>
+		</div>
+	</body>
+	<script>
+
+		var app_text = new Vue({
+			el:'#app_text',
+			data:{
+				msg:"Welcome to Vue.js template syntax.",
+				rawHtml:'<span style="color:red">this should be red.</span>',
+				isButtonDisabled:true,
+				dynamicId:'dynamicId'
+			}
+		});
+
+		document.getElementById('dynamicId').innerHTML = "hello,v-bind dynmic id!";
+	</script>
+</html>
