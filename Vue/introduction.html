@@ -21,6 +21,15 @@
 			<p>{{ message }}</p>
 			<input v-model='message'>
 		</div>
+
+		<div id="app-7">
+			<ol>
+				<todo-item v-for='item in grocerylist'
+					v-bind:todo='item' 
+					v-bind:key='item.id'>
+				</todo-item>
+			</ol>
+		</div>
 	</body>
 
 	<script>
@@ -54,10 +63,27 @@
 			}
 		});
 
+		Vue.component('todo-item', {
+			props:['todo'],
+			template:'<li>{{ todo.text }}</li>'
+		});
+
+		var app7 = new Vue({
+			el:"#app-7",
+			data:{
+				grocerylist:[
+					{'text':'Vegetables'},
+					{'text':'Cheese'},
+					{'text':'Whatever else humans are support to eat.'},
+				]
+			}
+		})
+
 		setInterval(() => {
 			var count = app4.todos.length;
 			if(count >10) return;
 			app4.todos.push({text: "No "+  count + " by setInterval appended."});
+			app7.grocerylist.push({text: "No " + count + " something."});
 		}, 1000);
 	
 	</script>
