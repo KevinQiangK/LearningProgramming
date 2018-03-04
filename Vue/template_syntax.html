@@ -4,8 +4,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	</head>
 	<body>
-		<h1>Interploations</h1>
 		<div id="app_text">
+			<h1>Interploations</h1>
 			<h2>Text</h2>
 			<p>Mustaches interprets the data as plain txt,v-once directive only one-time interpolations.</p>
 			<span v-once>Message：{{ msg }}</span>
@@ -24,6 +24,17 @@
 			<p>Boolean: {{ ok ? 'YES': 'NO' }}</p>
 			<p>String: {{ message.split('').reverse().join('') }}</p>
 		</div>
+
+		<div id="app_directive">
+			<h1>Directive</h1>
+			<p>with the `v-` prefix, expected ato be a single JavaScript Expressions， A directive’s job is to reactively apply side effects to the DOM when the value of its expression changes</p>
+			<h2>Arguments</h2>
+			<a v-bind:href='url'>v-bind:href='url'</a>
+			<br>
+			<button v-on:click='doSomething'>v-on:click</button>
+			<h2>Modifiers</h2>
+			<p>Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way</p>
+		</div>
 	</body>
 	<script>
 
@@ -37,6 +48,16 @@
 				number:100,
 				ok:true,
 				message:"123456789",
+			}
+		});
+
+		var app_directive = new Vue({
+			el:"#app_directive",
+			data:{
+				url:'https://www.baidu.com'
+			},
+			methods:{
+				doSomething:function(){alert('hello.')}
 			}
 		});
 
