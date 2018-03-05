@@ -8,7 +8,11 @@
 	<p>Complex logic should use computed property for avoid template changed to bloated and hard to maintain.</p>
 	<div id="cp_basic">
 		<p>Origin Message:"{{ message }}"</p>
-		<p>Computed Reversed Message:"{{ reverseMessage}}"</p>
+		<p>Computed Property Reversed Message:"{{ reverseMessage}}"</p>
+		<p>Method Reversed Message:{{ reverseMessageMethod() }} </p>
+
+		<p>Computed Time:{{ now }}</p>
+		<p>Method Time:{{ nowMethod() }}</p>
 	</div>
     </body>
     <script>
@@ -19,7 +23,21 @@
 			},
 			computed:{
 				//no side effects and essier to test and understand.
+				//computed properties are cached based on their dependencies
 				reverseMessage:function(){
+					return this.message.split('').reverse().join('');
+				},
+				now:function(){
+					//never update, because Date.now() is not a reactive dependency
+					return Date.now();
+				}
+			},
+			//Without caching, we would be executing A’s getter many more times than necessary! In cases where you do not want caching, use a method instead.
+			methods:{
+				nowMethod:function(){
+					return Date.now();
+				},
+				reverseMessageMethod:function(){
 					return this.message.split('').reverse().join('');
 				}
 			}
