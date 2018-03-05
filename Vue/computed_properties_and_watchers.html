@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Computed Properties and watchers</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+	<h1>Computed Properties</h1>
+	<p>Complex logic should use computed property for avoid template changed to bloated and hard to maintain.</p>
+	<div id="cp_basic">
+		<p>Origin Message:"{{ message }}"</p>
+		<p>Computed Property Reversed Message:"{{ reverseMessage}}"</p>
+		<p>Method Reversed Message:{{ reverseMessageMethod() }} </p>
+
+		<p>Computed Time:{{ now }}</p>
+		<p>Method Time:{{ nowMethod() }}</p>
+
+		<p>Computed Setter, User fullName:{{ fullName }}</p>
+	</div>
+
+	<div id="watch">
+		<p>first using computed, generic way react to data change through the watch option.<span style="color:red">
+			when you want to perform asyncchronous or expensive opertations in response to change data.
+		</span></p>
+
+		<p>Ask a yes/no question:<input v-model='question'></p>
+		<p>{{ answer }}</p>
+		
+	</div>
+
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+    <script>
+		var basic = new Vue({
+			el:'#cp_basic',
+			data:{
+				message:"Hello,Vue.js World!",
+				firstName: 'foo',
+				lastName: 'bar',
+			},
+			computed:{
+				//no side effects and essier to test and understand.
+				//computed properties are cached based on their dependencies
+				reverseMessage:function(){
+					return this.message.split('').reverse().join('');
+				},
+				now:function(){
+					//never update, because Date.now() is not a reactive dependency
+					return Date.now();
+				},
+				fullName:{
+					get:function(){ return this.firstName + ' ' + this.lastName; },
+					set:function(newValue){ 
+						var names = newValue.split(' ');
+						this.firstName = names[0];
+						this.lastName = names[names.length-1];
+					 }
+				}
+				
+			},
+			//Without caching, we would be executing A’s getter many more times than necessary! In cases where you do not want caching, use a method instead.
+			methods:{
+				nowMethod:function(){
+					return Date.now();
+				},
+				reverseMessageMethod:function(){
+					return this.message.split('').reverse().join('');
+				}
+			}
+		});
+
+		var watchVm = new Vue({
+			el:'#watch',
+			data:{
+				question:'',
+				answer:'I cannot give you an answer until you ask a question.'
+			},
+			watch:{
+				question:function(newQuestion, oldQuestion){
+					this.answer = 'Wathing for you to stop type...';
+					this.getAnswer();
+				}
+			},
+			methods:{
+				getAnswer:_.debounce(function(){
+					if(this.question.indexOf('?') === -1)
+					{
+						this.answer = "Question usually contains a question mark.";
+						return
+					}
+					this.answer = "Thinking.....";
+					var vm  = this;
+					axios.get('https://yesno.wtf/api')
+					.then(function(response){
+						vm.answer = _.capitalize(response.data.answer);
+					})
+					.catch(function(err){
+						vm.answer = 'Error! Could not reach the APi:' + err;
+					})
+				}, 500)
+			}
+		});
+    </script>
+</html>
