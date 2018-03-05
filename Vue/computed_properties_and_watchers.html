@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Computed Properties and watchers</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+	<h1>Computed Properties</h1>
+	<p>Complex logic should use computed property for avoid template changed to bloated and hard to maintain.</p>
+	<div id="cp_basic">
+		<p>Origin Message:"{{ message }}"</p>
+		<p>Computed Reversed Message:"{{ reverseMessage}}"</p>
+	</div>
+    </body>
+    <script>
+		var basic = new Vue({
+			el:'#cp_basic',
+			data:{
+				message:"Hello,Vue.js World!",
+			},
+			computed:{
+				//no side effects and essier to test and understand.
+				reverseMessage:function(){
+					return this.message.split('').reverse().join('');
+				}
+			}
+		});
+    </script>
+</html>
