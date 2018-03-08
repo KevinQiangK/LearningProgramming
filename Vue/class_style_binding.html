@@ -23,6 +23,13 @@
 			<p>When you use the class attribute on a custom component, those classes will be added to the component’s root element. Existing classes on this element will not be overwritten.</p>
 			<my-component class="baz boo"></my-component>
 			<my-component :class="{active: isActive}"></my-component>
+
+			<h1>Binding Inline Style</h1>
+			<h2>Object Syntax</h2>
+			<div v-bind:style="styleObj">StyleObject binding to style</div>
+
+			<h2>Multiple Values</h2>
+			<<div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
 		</div>
 	</body>
 	<script>
@@ -39,7 +46,12 @@
 
 				isActive:true,
 				hasError:true,
-				error: null
+				error: null,
+
+				styleObj:{
+					color:'red',
+					fontSize: '30px'
+				}
 			},
 			computed:{
 				classObj: function(){
