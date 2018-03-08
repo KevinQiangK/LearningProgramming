@@ -3,7 +3,7 @@
 		<title>Class and Style Bindings</title>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<style>
-			.active {border-color: blue; border-width: 2px;}
+			.active {background-color: blue;}
 			.text-danger {color: red;}
 		</style>
 	</head>
@@ -18,9 +18,18 @@
 			<h2>Array Syntax</h2>
 			<div :class="[activeClass, errorClass]">binding array</div>
 			<div :class="[{active: isActive}, errorClass]">use the object syntax inside array syntax</div>
+
+			<h2>With Components</h2>
+			<p>When you use the class attribute on a custom component, those classes will be added to the component’s root element. Existing classes on this element will not be overwritten.</p>
+			<my-component class="baz boo"></my-component>
+			<my-component :class="{active: isActive}"></my-component>
 		</div>
 	</body>
 	<script>
+		var myComponent = Vue.component('my-component',{
+			template:'<p class="foo bar">This is from Component.</p>'
+		});
+
 		var vm = new Vue({
 			el:'#app_html',
 			data:{
