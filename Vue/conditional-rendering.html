@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Conditional Rendering</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<style>
+			.active {background-color: blue;}
+			.text-danger {color: red;}
+		</style>
+	</head>
+	<body>
+		<div id="app_html">
+			<h1>v-if</h1>
+			<h2 v-if="isShowH2Title">this is displayed by v-if</h2>
+			
+			<div v-if="type==='A'">
+				<p>TYPE is 'A'.</p>
+			</div>
+			<div v-else-if="type==='B'">
+				<p>TYPE is 'B'.</p>
+			</div>
+			<div v-else>
+				<p>TYPE IS not 'A' or 'B'.</p>
+			</div>
+
+
+			<template v-if='isTemplateOn'>
+				<h1>Template Condition</h1>
+				<p>Hello,This is v-if Template.</p>
+			</template>
+
+			<h1>Controlling Reusable with key</h1>
+			<template v-if:
+
+		</div>
+	</body>
+	<script>
+		var vm = new Vue({
+			el:'#app_html',
+			data:{
+				isShowH2Title:false,
+				type:'Z',
+				isTemplateOn: true,
+			}	
+		});
+
+		setTimeout(() => {
+			vm.isShowH2Title = true;
+			vm.type = 'B';
+			vm.isTemplateOn = false;
+		}, 3000);
+	</script>
+</html>
