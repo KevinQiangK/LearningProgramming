@@ -21,6 +21,16 @@
 			<div v-else>
 				<p>TYPE IS not 'A' or 'B'.</p>
 			</div>
+
+
+			<template v-if='isTemplateOn'>
+				<h1>Template Condition</h1>
+				<p>Hello,This is v-if Template.</p>
+			</template>
+
+			<h1>Controlling Reusable with key</h1>
+			<template v-if:
+
 		</div>
 	</body>
 	<script>
@@ -29,12 +39,14 @@
 			data:{
 				isShowH2Title:false,
 				type:'Z',
+				isTemplateOn: true,
 			}	
 		});
 
 		setTimeout(() => {
 			vm.isShowH2Title = true;
 			vm.type = 'B';
+			vm.isTemplateOn = false;
 		}, 3000);
 	</script>
 </html>
